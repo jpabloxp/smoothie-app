@@ -1,0 +1,13 @@
+
+.buttons{
+    width: 100%;
+    float: right;
+  }
+  
+  button{
+    float: right;
+  }
+
+  .material-icons{
+    padding-right: 8%;
+  }
