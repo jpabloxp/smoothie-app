@@ -1,0 +1,21 @@
+
+.body{
+    margin: 2%;
+  }
+
+  .mat-card{
+    width: 80%;
+  }
+
+  .mat-card-image{
+    max-width: 200px;
+    max-height: 300px;
+
+    margin-left: 30%;
+    margin-top: 2%;
+  }
+
+  .mat-card-header{
+    display:block;
+    margin: 0px;
+  }

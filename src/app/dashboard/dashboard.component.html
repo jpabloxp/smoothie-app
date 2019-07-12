@@ -19,19 +19,14 @@
                 Ingredients selected: {{ingredients.selectedOptions.name}}
         </p>
     
-            <form class="example-form">
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Smoothie" [(ngModel)]="smoothie" name="smoothie">
-                    </mat-form-field>
-                    
-                    <mat-form-field class="example-full-width">
-                        <textarea matInput placeholder="Leave a comment"></textarea>
-                    </mat-form-field>
-                </form>
-                
-                <p>
-                    Your choice is: {{smoothie}}
-                </p>
+        <div>
+            <p>Available smoothies:</p>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Add smoothies</mat-card-title>
+                </mat-card-header>
+            </mat-card>
+        </div>
     </div>
 
 </div>

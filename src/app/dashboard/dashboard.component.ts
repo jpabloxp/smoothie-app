@@ -1,3 +1,4 @@
+import { SmoothieService, Smoothie } from './../smoothie.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -9,12 +10,18 @@ import { Component, OnInit, Input } from '@angular/core';
 export class DashboardComponent implements OnInit {
 
   @Input() smoothie;
+  private _smoothies: Smoothie[];
 
   private _title;
   
   private smoothieIngredients: string[] = ['Framboise', 'Fraise', 'Mangue', 'Banana'];
 
-  constructor() { }
+  constructor(private SmoothieService: SmoothieService) {
+    SmoothieService.getSmoothies().subscribe( (smoothies) => {
+      this._smoothies = smoothies;
+      console.log(this._smoothies);
+    });
+  }
 
   ngOnInit() {
 
@@ -31,7 +38,22 @@ export class DashboardComponent implements OnInit {
     return this._title;
   }
 
-  getTitle(): string{
-    return this.title;
+
+
+  set smoothies(smoothieList: any){
+    this._smoothies = smoothieList;
   }
+
+  get smoothies(): any{
+    return this._smoothies;
+  }
+
+  getAllSmoothies(): void{
+
+    this.SmoothieService.getSmoothies().subscribe( (smoothiesData) => {
+      this.smoothies = smoothiesData;
+      console.log(this.smoothies);
+    });
+  }
+
 }

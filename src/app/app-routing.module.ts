@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import { SmoothieComponent } from './smoothie/smoothie.component';
 import { AppHeaderComponent } from './app-header/app-header.component';
+import { DetailComponent } from './detail/detail.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'header',
     component: AppHeaderComponent,
+  },
+  {
+    path: 'detail/:id',
+    component: DetailComponent,
   },
 
 ];

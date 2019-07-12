@@ -18,13 +18,16 @@ import {MatIconModule} from '@angular/material/icon';
 
 import { SmoothieComponent } from './smoothie/smoothie.component';
 import { AppHeaderComponent } from './app-header/app-header.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     SmoothieComponent,
-    AppHeaderComponent
+    AppHeaderComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { AppHeaderComponent } from './app-header/app-header.component';
     MatButtonModule,
     MatGridListModule,
     MatIconModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
