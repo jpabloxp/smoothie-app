@@ -43,22 +43,30 @@ export interface Smoothie{
 export class SmoothieService {
 
   private apiURL = environment.apiURL;
-  
+
   constructor(private http: HttpClient, private router: Router){}
 
   // Get all Smoothie
   getSmoothies(): Observable<Smoothie[]> {
-    
+
     const smoothieListUrl = environment.apiURL + "/smoothie";
 
     return this.http.get<Smoothie[]>(smoothieListUrl);
   }
 
   // Get a single Smoothie
-  getOneSmoothie(id: String): Observable<Smoothie> {
+  getOneSmoothie(id: string): Observable<Smoothie> {
     const getUrl = `${this.apiURL}/test/${id}`;
     console.log(getUrl);
     return this.http.get<Smoothie>(getUrl);
+  }
+
+  addSmoothie(smoothie: Smoothie) {
+
+    console.log('in service  ', smoothie);
+
+    const addUrl = `${this.apiURL}/add`;
+    return this.http.post<Smoothie>(addUrl, smoothie);
   }
   
 }

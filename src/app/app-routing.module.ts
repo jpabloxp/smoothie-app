@@ -5,6 +5,8 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import { SmoothieComponent } from './smoothie/smoothie.component';
 import { AppHeaderComponent } from './app-header/app-header.component';
 import { DetailComponent } from './detail/detail.component';
+import { ModificationComponent } from './modification/modification.component';
+import { NewSmoothieComponent } from './new-smoothie/new-smoothie.component';
 
 
 const routes: Routes = [
@@ -26,6 +28,14 @@ const routes: Routes = [
   {
     path: 'detail/:id',
     component: DetailComponent,
+  },
+  {
+    path: 'modification/:id',
+    component: ModificationComponent,
+  },
+  {
+    path: 'newSmoothie',
+    component: NewSmoothieComponent,
   },
 
 ];

@@ -11,15 +11,14 @@
     margin-right: auto
   }
 
-  .mat-card-image{
-    max-width: 200px;
-    max-height: 300px;
-
-    margin-left: 40%;
-    margin-top: 2%;
-  }
-
   .mat-card-header{
     display:block;
     margin: 0px;
+  }
+  .mat-form-field{
+    padding: 2%;
+  }
+
+  .example-full-width{
+    width: 95%;
   }

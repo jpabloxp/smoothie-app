@@ -1,0 +1,96 @@
+<ng-template #newSmoothie>
+    <div class="body">
+        <form [formGroup]="smoothieForm" (ngSubmit)="onSubmit()" >
+
+            <div class="content p-24">
+        
+                <!-- name: Le nom du groupe -->
+                <mat-form-field  class="example-full-width">
+                    <input matInput placeholder="Titre" formControlName="titre"/>
+                    <mat-error *ngIf="myForm.titre.hasError('required')" >
+                        Le titre est obligatoire
+                    </mat-error>
+                </mat-form-field>
+                
+                <mat-form-field  class="example-full-width">
+                    <textarea matInput placeholder="Recommendations" formControlName="recommendations"></textarea>
+                </mat-form-field>
+
+                <mat-form-field  class="example-full-width">
+                    <textarea matInput placeholder="Description" formControlName="description"></textarea>
+                </mat-form-field>
+
+                <p>Photo</p>
+
+                <div formArrayName="photo" class="photosDiv" 
+                *ngFor="let data of smoothieForm.controls['photo'].controls; let i = index">
+                    <div [formGroupName]="i">
+                        <mat-form-field  class="example-full-width">
+                            <input matInput placeholder="Titre de la Photo" formControlName='title'>
+                        </mat-form-field>
+                        <mat-form-field  class="example-full-width">
+                            <input matInput placeholder="Path" formControlName='path'>
+                        </mat-form-field>
+                        <mat-form-field  class="example-full-width">
+                            <input matInput placeholder="Description de la Photo" formControlName='description'>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <p>Ingredients</p>
+
+                <div formArrayName="ingredients" class="ingredientsDiv" 
+                *ngFor="let ingredient of smoothieForm.controls['ingredients'].controls; let i = index">
+                    <div [formGroupName]="i">
+                        <mat-form-field  class="example-full-width">
+                            <input matInput placeholder="Nom {{ i + 1 }}" formControlName='nom'>
+                        </mat-form-field>
+                        <mat-form-field  class="example-full-width">
+                            <input matInput placeholder="Quantite {{ i + 1 }}" formControlName='quantite'>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="addMore" fxLayoutAlign="center center">
+                    <button mat-stroked-button color="primary" (click)="addIngredient()" class="boton">Add More</button>
+                </div>
+                
+                <p>Features</p>
+
+                <div formArrayName="features" class="featuresDiv" 
+                *ngFor="let feature of smoothieForm.controls['features'].controls; let i = index">
+                    <div [formGroupName]="i">
+                        <mat-form-field  class="example-full-width">
+                            <input matInput placeholder="Cout {{ i + 1 }}" formControlName='cout'>
+                        </mat-form-field>
+                        <mat-form-field  class="example-full-width">
+                            <input matInput placeholder="Temps de Preparation {{ i + 1 }}" formControlName='tempsPreparation'>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="addMore" fxLayoutAlign="center center">
+                    <button mat-stroked-button color="primary" (click)="addFeatures()" class="boton">Add More</button>
+                </div>
+    
+                <p>Deroulement</p>
+
+                <div formArrayName="deroulement" class="featuresDiv" 
+                *ngFor="let steps of smoothieForm.controls['deroulement'].controls; let i = index">
+                    <div [formGroupName]="i">
+                        <mat-form-field  class="example-full-width">
+                            <input matInput placeholder="Pas {{ i + 1 }}" formControlName='pas'>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="addMore" fxLayoutAlign="center center">
+                    <button mat-stroked-button color="primary" (click)="addDeroulement()" class="boton">Add More</button>
+                </div>
+    
+                <div class="p-8 pt-0" fxLayout="row" fxLayoutAlign="center center">
+                    <button mat-stroked-button color="primary" class="boton">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</ng-template>
+    
+<ng-container *ngTemplateOutlet="smoothieForm ? newSmoothie : '' "></ng-container>

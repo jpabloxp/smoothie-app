@@ -41,7 +41,7 @@ export class SmoothieComponent implements OnInit {
   }
 
   getDetail(smoothieId: string){
-    
+    //this.router.navigate()
   }
 
   //ON INIT

@@ -1,0 +1,42 @@
+<ng-template #modification>
+    <div class="body">
+
+        <mat-card color="primary">
+
+            <form class="example-form" [formGroup]="changeSmoothieForm" (ngSubmit)="onSubmit();">
+                <mat-card-header>
+                    <mat-toolbar color="primary">Change smoothie: {{ _changeSmoothie.titre | uppercase }}</mat-toolbar>
+                </mat-card-header>
+            
+                <mat-card-content>
+
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="TITRE" formControlName="titre" value="{{ _changeSmoothie.titre }}">
+                    </mat-form-field>
+                    
+                    <mat-form-field class="example-full-width">
+                        <textarea matInput placeholder="RECOMMENDATIONS" formControlName="recommendations" value="{{ _changeSmoothie.recommendations }}"></textarea>
+                    </mat-form-field>
+                    
+                    <mat-form-field class="example-full-width">
+                        <textarea matInput placeholder="DESCRIPTION" formControlName="description" value="{{ _changeSmoothie.description }}"></textarea>
+                    </mat-form-field>
+
+                   
+<!--                 <form class="example-form" formArrayName="ingredients">
+                    <mat-form-field class="example-full-width" *ngFor="let ingredient of ingredients">
+                        <input matInput placeholder="INGREDIENT" formControlName="titre" value="{{ ingredient.nom }}">
+                    </mat-form-field>
+                </form> -->
+
+                </mat-card-content>
+                
+                <mat-card-actions>
+                    <button mat-button color="primary">Save</button>
+                </mat-card-actions>
+            </form>
+        </mat-card>
+    </div>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="_changeSmoothie ? modification : '' "></ng-container>
